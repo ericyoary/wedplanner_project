@@ -1,0 +1,25 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>One Wedding</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div id="wrapper">
+        <h1>{{ wedding.wedder_one }} & {{ wedding.wedder_two }}'s Wedding </h1>
+        <a id="dasboard" class="btn btn-primary" href="/weddings">Dasboard</a> <a id="logout" class="btn btn-secondary" href="/logout">Logout</a>
+        <hr>
+        <h2>Date: {{ wedding.wedding_date }}</h2>
+        <h3>Guest List:</h3>
+        <ul>
+           {% for guest in wedding.guests.all %}
+           <li>{{ guest.first_name }} {{ guest.last_name }}</li> 
+           {% endfor %}
+        </ul>
+
+    </div>
+</body>
+</html>
